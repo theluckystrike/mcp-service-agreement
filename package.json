@@ -1,0 +1,57 @@
+{
+  "name": "@theluckystrike/mcp-service-agreement",
+  "version": "0.22.0",
+  "description": "Service agreements for freelancers: scope, deliverables, rate, termination and liability caps.",
+  "type": "module",
+  "bin": {
+    "mcp-service-agreement": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "server.json"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json --declaration && node -e \"import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))\"",
+    "test": "node --test test/*.test.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "service-agreement",
+    "freelance",
+    "contract",
+    "client-work",
+    "agreement",
+    "consulting"
+  ],
+  "license": "MIT",
+  "author": "theluckystrike",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/mcp-servers",
+    "directory": "servers/service-agreement"
+  },
+  "homepage": "https://github.com/theluckystrike/mcp-servers/tree/main/servers/service-agreement",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@theluckystrike/mcp-license": "file:vendor/mcp-license",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0"
+  }
+}
