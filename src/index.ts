@@ -91,7 +91,7 @@ const server = new McpServer(
 
 const agreementArg = str("agreement", MAX_NAME).describe("The agreement id, e.g. SA-2026-0003, or the client name when only one agreement has it");
 
-server.registerTool("agreement_create", {
+server.registerTool("agreement_create", { annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
   title: "Write a service agreement",
   description: "Write a service agreement between a freelancer and a client before the work starts: the parties, the scope of services, the deliverables, the rate and payment terms, start and end dates, a termination notice period, a liability cap and the governing jurisdiction. Stores the agreement and returns it rendered as clean Markdown with a signature block. Free tier: 3 active agreements; expiring a finished one frees its slot.",
   inputSchema: {
@@ -170,7 +170,7 @@ server.registerTool("agreement_create", {
   } catch (e) { return fail((e as Error).message); }
 });
 
-server.registerTool("agreement_get", {
+server.registerTool("agreement_get", { annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
   title: "Read one agreement",
   description: "Read one service agreement in full by SA number or client name: parties, scope, deliverables, rate and payment terms, dates, termination, liability cap, jurisdiction, the clauses it carries, its status and its status history. Reads only.",
   inputSchema: {
@@ -185,7 +185,7 @@ server.registerTool("agreement_get", {
   } catch (e) { return fail((e as Error).message); }
 });
 
-server.registerTool("agreement_list", {
+server.registerTool("agreement_list", { annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
   title: "List agreements",
   description: "List service agreements newest first: parties, status, rate, dates and the clauses each carries. Filter by status and by client. An agreement is active until it is expired; the free tier holds 3 active agreements.",
   inputSchema: {
@@ -218,7 +218,7 @@ server.registerTool("agreement_list", {
   } catch (e) { return fail((e as Error).message); }
 });
 
-server.registerTool("agreement_update_status", {
+server.registerTool("agreement_update_status", { annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
   title: "Move an agreement one step",
   description: "Move one agreement exactly one step: draft, sent, signed, expired, stamping the date and an optional note into its history. A skipped or backwards step is refused and nothing is written. Expiring a finished engagement frees a free-tier slot.",
   inputSchema: {
@@ -262,7 +262,7 @@ server.registerTool("agreement_update_status", {
   } catch (e) { return fail((e as Error).message); }
 });
 
-server.registerTool("clause_library", {
+server.registerTool("clause_library", { annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
   title: "List the built-in clause library",
   description: "List the built-in clause library: intellectual property assignment, mutual confidentiality, late payment interest, kill fee and revision rounds. Each clause is a title plus a body text. Pass an agreement and, on Pro, every body comes back with that agreement's variables filled in. The free tier lists titles and summaries; the full texts are a Pro feature.",
   inputSchema: {
@@ -303,7 +303,7 @@ server.registerTool("clause_library", {
   } catch (e) { return fail((e as Error).message); }
 });
 
-server.registerTool("agreement_render", {
+server.registerTool("agreement_render", { annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },
   title: "Render an agreement for signing",
   description: "Render a service agreement ready to send and sign: the parties, the services, the deliverables, the payment terms, the term, termination, liability, jurisdiction, any library clauses it carries, and a signature block for both parties. Markdown, or self-contained HTML with print CSS that needs nothing from the network. HTML is a Pro feature. Writes nothing.",
   inputSchema: {
@@ -323,7 +323,7 @@ server.registerTool("agreement_render", {
   } catch (e) { return fail((e as Error).message); }
 });
 
-server.registerTool("agreement_checklist", {
+server.registerTool("agreement_checklist", { annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
   title: "Check an agreement before you send it",
   description: "The before-you-send-it checklist for one agreement: every missing field is listed, and terms whose absence cuts one way are flagged neutrally -- as written, what the gap means for both parties -- such as no termination clause or an uncapped liability. Reads only.",
   inputSchema: {

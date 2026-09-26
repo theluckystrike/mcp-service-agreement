@@ -43,8 +43,10 @@ Read-only mirror of [mcp-servers/servers/service-agreement](https://github.com/t
 
 <!-- mirror-seo:end -->
 
+[![theluckystrike/mcp-service-agreement MCP server](https://glama.ai/mcp/servers/theluckystrike/mcp-service-agreement/badges/score.svg)](https://glama.ai/mcp/servers/theluckystrike/mcp-service-agreement)
+
 **In the [official MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fservice-agreement/versions/latest)** (`io.github.theluckystrike/service-agreement`).
-An mcp service agreement writer for freelancers who are about to start client work and do not want to copy a rotting template off the internet again. Give it the parties, the scope of services, the deliverables, the rate and payment terms, start and end dates, a termination notice period, a liability cap and the governing jurisdiction, and it stores the agreement and renders clean Markdown -- or print-ready HTML -- with a signature block for both sides. A before-you-send-it checklist lists missing fields and flags one-sided gaps neutrally, like an agreement with no termination clause. A built-in clause library covers IP assignment, confidentiality, late payment interest, kill fee and revision rounds, filled with your agreement's own details. Every render carries a one-line note that it is a template, not legal advice. Everything stays on this machine; there is no account and no network call.
+An mcp service agreement writer for freelancers who are about to start client work and do not want to copy a rotting template off the internet again. Give it the parties, the scope of services, the deliverables, the rate and payment terms, start and end dates, a termination notice period, a liability cap and the governing jurisdiction, and it stores the agreement and renders clean Markdown, or print-ready HTML, with a signature block for both sides. A before-you-send-it checklist lists missing fields and flags one-sided gaps neutrally, like an agreement with no termination clause. A built-in clause library covers IP assignment, confidentiality, late payment interest, kill fee and revision rounds, filled with your agreement's own details. Every render carries a one-line note that it is a template, not legal advice. Everything stays on this machine; there is no account and no network call.
 
 Built by theluckystrike.
 
@@ -103,14 +105,20 @@ claude mcp add service-agreement -- npx -y @theluckystrike/mcp-service-agreement
 
 The document is never metered. Three active agreements covers a working freelancer's live engagements, and an agreement stops counting the moment it expires, so writing, reading, checklists and Markdown stay free for good. What Pro adds is the full clause library, print-ready HTML, and unlimited active agreements.
 
-**Get Pro:** https://mcp.zovo.one/buy/service-agreement -- $19 one-time for this server, or $39 for the bundle.
+Get Pro: https://mcp.zovo.one/buy/service-agreement, $19 one-time for this server, or $39 for the bundle.
 
 ## Not legal advice
 
-Every rendered agreement ends with one line: "This agreement is a template, not legal advice." The checklist flags gaps neutrally -- what the agreement says as written, for both parties -- and never tells anyone what the law is or what to do.
+Every rendered agreement ends with one line: "This agreement is a template, not legal advice." The checklist flags gaps neutrally, what the agreement says as written, for both parties, and never tells anyone what the law is or what to do.
 
 ## Privacy
 
 All data stays local, in `${XDG_DATA_HOME:-~/.local/share}/mcp-servers/service-agreement/`. Two files: `agreements.json`, `counter.json`. Nothing is sent anywhere, there is no account, no API key and no network call in this server at all. License keys are verified offline.
 
 Built by theluckystrike. https://github.com/theluckystrike
+
+## Use these docs as an MCP server
+
+Any MCP client (Claude, Cursor, Windsurf, VS Code) can read this repository's documentation directly via GitMCP — no install:
+
+- Docs MCP URL: https://gitmcp.io/theluckystrike/mcp-service-agreement
